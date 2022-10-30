@@ -15,7 +15,8 @@ on:
   workflow_dispatch:
 
 env:
-  IMAGE_TOTAL_NAME: ${{ secrets.CODING_REGISTRY }}/docker-image/${{ secrets.SERVICE_CONTAINER_NAME }}/${{ secrets.SERVICE_CONTAINER_NAME }}
+  SERVICE_CONTAINER_NAME: eureka
+  IMAGE_TOTAL_NAME: ${{ secrets.CODING_REGISTRY }}/docker-image/${{ env.SERVICE_CONTAINER_NAME }}/${{ secrets.SERVICE_CONTAINER_NAME }}
   IMAGE_TAG: latest
   EXPOSED_PORT: 9001
 
