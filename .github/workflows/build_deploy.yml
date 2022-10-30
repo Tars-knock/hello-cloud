@@ -4,10 +4,9 @@ name: Hello CI
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-     branches:
-       - 'release/**'
-#    tags: # tags 更新时触发 workflow
-#      - 'v*'
+    # branches: [ main ]
+    tags: # tags 更新时触发 workflow
+      - 'v*'
     # pull_request:
     # branches: [ main ]
 
@@ -17,7 +16,7 @@ on:
 env:
   SERVICE_CONTAINER_NAME: eureka
   EUREKA_IMAGE_NAME: ${{ secrets.CODING_REGISTRY }}/ci-test/repo/eureka
-  IMAGE_TAG: master
+  IMAGE_TAG: latest
   EXPOSED_PORT: 9001
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -62,7 +61,7 @@ jobs:
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.JOY_HOST }}
+          host: ${{ secrets.JOY2_HOST }}
           username: ${{ secrets.GENERAL_USER }}
           password: ${{ secrets.GENERAL_PASSWD }}
           script: |
