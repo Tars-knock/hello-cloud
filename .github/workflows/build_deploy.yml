@@ -16,7 +16,7 @@ on:
 
 env:
   SERVICE_CONTAINER_NAME: eureka
-  IMAGE_TOTAL_NAME: ${{ secrets.CODING_REGISTRY }}/docker-image/${{ env.SERVICE_CONTAINER_NAME }}/${{ secrets.SERVICE_CONTAINER_NAME }}
+  EUREKA_IMAGE_NAME: ${{ secrets.CODING_REGISTRY }}/docker-image/eureka/${{ secrets.SERVICE_CONTAINER_NAME }}
   IMAGE_TAG: latest
   EXPOSED_PORT: 9001
 
@@ -49,7 +49,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: ${{ env.IMAGE_TOTAL_NAME }}
+          images: ${{ env.EUREKA_IMAGE_NAME }}
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
@@ -67,11 +67,11 @@ jobs:
           password: ${{ secrets.GENERAL_PASSWD }}
           script: |
             docker login -u ${{ secrets.CODING_USER }} -p ${{ secrets.CODING_TOKEN }} ${{ secrets.CODING_REGISTRY }}
-            docker pull ${{ env.IMAGE_TOTAL_NAME }}:${{ env.IMAGE_TAG }}
+            docker pull ${{ env.EUREKA_IMAGE_NAME }}:${{ env.IMAGE_TAG }}
             docker stop ${{ secrets.SERVICE_CONTAINER_NAME }}
             docker rm ${{ secrets.SERVICE_CONTAINER_NAME }}
             docker run -d \
               --name ${{ secrets.SERVICE_CONTAINER_NAME }} \
               -p ${{ env.EXPOSED_PORT }}:8080 \
 #              --link ${{ secrets.DATABASE_CONTAINER_NAME }}:${{ secrets.DATABASE_CONTAINER_NAME }} \
-#              ${{ env.IMAGE_TOTAL_NAME }}:${{ env.IMAGE_TAG }}
+#              ${{ env.EUREKA_IMAGE_NAME }}:${{ env.IMAGE_TAG }}
