@@ -66,7 +66,7 @@ jobs:
           username: ${{ secrets.GENERAL_USER }}
           password: ${{ secrets.GENERAL_PASSWD }}
           script: |
-            sudo docker login -u ${{ secrets.CODING_USER }} -p ${{ secrets.CODING_TOKEN }} ${{ secrets.CODING_REGISTRY }}
+            sudo docker login -u ${{ secrets.CODING_USER }} -p ${{ secrets.CODING_PASSWD }} ${{ secrets.CODING_REGISTRY }}
             sudo docker pull ${{ env.EUREKA_IMAGE_NAME }}:${{ env.IMAGE_TAG }}
             sudo docker stop ${{ env.SERVICE_CONTAINER_NAME }}
             sudo docker rm ${{ env.SERVICE_CONTAINER_NAME }}
