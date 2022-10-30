@@ -68,10 +68,10 @@ jobs:
           script: |
             docker login -u ${{ secrets.CODING_USER }} -p ${{ secrets.CODING_TOKEN }} ${{ secrets.CODING_REGISTRY }}
             docker pull ${{ env.EUREKA_IMAGE_NAME }}:${{ env.IMAGE_TAG }}
-            docker stop ${{ secrets.SERVICE_CONTAINER_NAME }}
-            docker rm ${{ secrets.SERVICE_CONTAINER_NAME }}
+            docker stop ${{ env.SERVICE_CONTAINER_NAME }}
+            docker rm ${{ env.SERVICE_CONTAINER_NAME }}
             docker run -d \
-              --name ${{ secrets.SERVICE_CONTAINER_NAME }} \
+              --name ${{ env.SERVICE_CONTAINER_NAME }} \
               -p ${{ env.EXPOSED_PORT }}:8080 \
 #              --link ${{ secrets.DATABASE_CONTAINER_NAME }}:${{ secrets.DATABASE_CONTAINER_NAME }} \
-#              ${{ env.EUREKA_IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+              ${{ env.EUREKA_IMAGE_NAME }}:${{ env.IMAGE_TAG }}
