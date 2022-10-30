@@ -17,7 +17,7 @@ on:
 env:
   SERVICE_CONTAINER_NAME: eureka
   EUREKA_IMAGE_NAME: ${{ secrets.CODING_REGISTRY }}/ci-test/repo/eureka
-  IMAGE_TAG: master
+  IMAGE_TAG: latest
   EXPOSED_PORT: 9001
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
