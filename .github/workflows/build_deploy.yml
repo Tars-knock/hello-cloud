@@ -1,0 +1,76 @@
+name: Hello CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+     branches:
+       - 'release/**'
+#    tags: # tags 更新时触发 workflow
+#      - 'v*'
+    # pull_request:
+    # branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+env:
+  IMAGE_TOTAL_NAME: ${{ secrets.CODING_REGISTRY }}/docker-image/${{ secrets.SERVICE_CONTAINER_NAME }}/${{ secrets.SERVICE_CONTAINER_NAME }}
+  IMAGE_TAG: latest
+  EXPOSED_PORT: 9001
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      # maven build
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+          cache: maven
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml
+
+      # coding.net docker repo
+      - name: Log in to the Coding docker registry
+        uses: docker/login-action@v1
+        with:
+          registry: ${{ secrets.CODING_REGISTRY }}
+          username: ${{ secrets.CODING_USER }}
+          password: ${{ secrets.CODING_PASSWD }}
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v3
+        with:
+          images: ${{ env.IMAGE_TOTAL_NAME }}
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
+      # pull new image and restart service
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.JOY_HOST }}
+          username: ${{ secrets.GENERAL_USER }}
+          password: ${{ secrets.GENERAL_PASSWD }}
+          script: |
+            docker login -u ${{ secrets.CODING_USER }} -p ${{ secrets.CODING_TOKEN }} ${{ secrets.CODING_REGISTRY }}
+            docker pull ${{ env.IMAGE_TOTAL_NAME }}:${{ env.IMAGE_TAG }}
+            docker stop ${{ secrets.SERVICE_CONTAINER_NAME }}
+            docker rm ${{ secrets.SERVICE_CONTAINER_NAME }}
+            docker run -d \
+              --name ${{ secrets.SERVICE_CONTAINER_NAME }} \
+              -p ${{ env.EXPOSED_PORT }}:8080 \
+#              --link ${{ secrets.DATABASE_CONTAINER_NAME }}:${{ secrets.DATABASE_CONTAINER_NAME }} \
+#              ${{ env.IMAGE_TOTAL_NAME }}:${{ env.IMAGE_TAG }}
