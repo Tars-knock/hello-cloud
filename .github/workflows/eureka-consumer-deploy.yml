@@ -1,4 +1,4 @@
-name: eureka-client-deploy
+name: eureka-consumer-deploy
 
 # Controls when the workflow will run
 on:
