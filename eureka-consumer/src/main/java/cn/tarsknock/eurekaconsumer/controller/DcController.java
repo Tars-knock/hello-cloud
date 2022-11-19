@@ -25,9 +25,10 @@ public class DcController {
         return restTemplate.getForObject(url, String.class);
     }
 
-    @GetMapping("/ribbon")
+    @GetMapping("/dc")
     public String ribbon(){
-        return restTemplate.getForObject("http://erueka-server/dc", String.class);
+        //这里之前一直拼错了 导致调用失败 真是扯
+        return restTemplate.getForObject("http://eureka-server/dc", String.class) + " --> ribbon consumer";
     }
 
 }
