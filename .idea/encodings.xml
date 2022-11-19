@@ -3,8 +3,8 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/eureka-consumer-feign/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/eureka-consumer-feign/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/eureka-consumer/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/eureka-consumer/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/eureka-consumer-ribbon/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/eureka-consumer-ribbon/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hello-discover-client/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hello-discover-client/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hello-eureka/src/main/java" charset="UTF-8" />

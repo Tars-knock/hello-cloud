@@ -8,13 +8,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="eureka-consumer-feign" />
-        <module name="eureka-consumer" />
+        <module name="eureka-consumer-ribbon" />
         <module name="hello-eureka" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="eureka-consumer" target="11" />
       <module name="eureka-consumer-feign" target="11" />
+      <module name="eureka-consumer-ribbon" target="11" />
       <module name="hello-discover-client" target="11" />
       <module name="hello-eureka" target="11" />
       <module name="hello-eureka (1)" target="11" />
@@ -22,7 +22,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="eureka-consumer" options="" />
+      <module name="eureka-consumer-ribbon" options="" />
       <module name="hello-discover-client" options="" />
     </option>
   </component>

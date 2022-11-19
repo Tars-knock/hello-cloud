@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/eureka-consumer/eureka-consumer.iml" filepath="$PROJECT_DIR$/eureka-consumer/eureka-consumer.iml" />
       <module fileurl="file://$PROJECT_DIR$/eureka-consumer-feign/eureka-consumer-feign.iml" filepath="$PROJECT_DIR$/eureka-consumer-feign/eureka-consumer-feign.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka-consumer/eureka-consumer-ribbon.iml" filepath="$PROJECT_DIR$/eureka-consumer/eureka-consumer-ribbon.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/hello-cloud.iml" filepath="$PROJECT_DIR$/.idea/hello-cloud.iml" />
       <module fileurl="file://$PROJECT_DIR$/hello-eureka/hello-eureka.iml" filepath="$PROJECT_DIR$/hello-eureka/hello-eureka.iml" />
     </modules>

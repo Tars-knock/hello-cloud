@@ -18,7 +18,7 @@ public class DcController {
 
     @GetMapping("/consumer")
     public String dc(){
-        return dcClient.consumer() + "  前面是来自server的信息";
+        return dcClient.consumer() + " --> feign consumer";
     }
 
 }
