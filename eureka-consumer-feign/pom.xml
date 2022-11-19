@@ -11,8 +11,8 @@
     <groupId>cn.tars-knock</groupId>
     <artifactId>eureke-consumer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>eureka-consumer</name>
-    <description>eureka-consumer</description>
+    <name>eureka-consumer-feign</name>
+    <description>eureka-consumer-feign</description>
     <properties>
         <java.version>11</java.version>
     </properties>
@@ -47,7 +47,7 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-ribbon</artifactId>
+            <artifactId>spring-cloud-starter-feign</artifactId>
         </dependency>
     </dependencies>
 

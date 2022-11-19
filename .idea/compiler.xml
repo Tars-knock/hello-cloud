@@ -7,12 +7,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="eureka-consumer-feign" />
         <module name="eureka-consumer" />
         <module name="hello-eureka" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="eureka-consumer" target="11" />
+      <module name="eureka-consumer-feign" target="11" />
       <module name="hello-discover-client" target="11" />
       <module name="hello-eureka" target="11" />
       <module name="hello-eureka (1)" target="11" />

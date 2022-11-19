@@ -1,5 +1,6 @@
 package cn.tarsknock.eurekaconsumer.controller;
 
+import cn.tarsknock.eurekaconsumer.feign.DcClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
@@ -13,21 +14,11 @@ import javax.annotation.Resource;
 public class DcController {
 
     @Autowired
-    private LoadBalancerClient loadBalancerClient;
-    @Autowired
-    private RestTemplate restTemplate;
+    private DcClient dcClient;
 
     @GetMapping("/consumer")
     public String dc(){
-        ServiceInstance serviceInstance = loadBalancerClient.choose("eureka-server");
-        String url = "http://"+serviceInstance.getHost()+":"+ serviceInstance.getPort() + "/dc";
-        System.out.println(url);
-        return restTemplate.getForObject(url, String.class);
-    }
-
-    @GetMapping("/ribbon")
-    public String ribbon(){
-        return restTemplate.getForObject("http://erueka-server/dc", String.class);
+        return dcClient.consumer();
     }
 
 }
