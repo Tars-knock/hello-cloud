@@ -37,7 +37,7 @@ jobs:
           distribution: 'temurin'
           cache: maven
       - name: Build with Maven
-        run: mvn -B package --file ./${{SERVICE_CONTAINER_NAME}}/pom.xml
+        run: mvn -B package --file ./${{env.SERVICE_CONTAINER_NAME}}/pom.xml
 
       # coding.net docker repo
       - name: Log in to the Coding docker registry
