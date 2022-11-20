@@ -13,7 +13,7 @@ public class ConsumerService {
 
     @HystrixCommand(fallbackMethod = "fallback")
     public String dc(){
-        return dcClient.consumer() + " --> hystrix consumer";
+        return dcClient.consumer() + " --> hystrix consumer (not fuse)";
     }
 
     public String fallback(){

@@ -6,6 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 @FeignClient("eureka-consumer-feign")
 public interface DcClient {
 
-    @GetMapping("/dc")
+    @GetMapping("/consumer")
     String consumer();
 }
