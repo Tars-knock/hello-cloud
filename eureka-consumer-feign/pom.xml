@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>cn.tars-knock</groupId>
-    <artifactId>eureke-consumer</artifactId>
+    <artifactId>eureka-consumer-feign</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>eureka-consumer-feign</name>
     <description>eureka-consumer-feign</description>

@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>cn.tars-knock</groupId>
-    <artifactId>eureka-consumer-ribbon</artifactId>
+    <artifactId>eureka-consumer-hystrix</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>eureka-consumer-ribbon</name>
-    <description>eureka-consumer-ribbon</description>
+    <name>eureka-consumer-hystrix</name>
+    <description>eureka-consumer-hystrix</description>
     <properties>
         <java.version>11</java.version>
     </properties>
@@ -47,7 +47,11 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-ribbon</artifactId>
+            <artifactId>spring-cloud-starter-feign</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-hystrix</artifactId>
         </dependency>
     </dependencies>
 
