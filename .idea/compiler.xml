@@ -7,13 +7,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="api-gateway" />
         <module name="eureka-consumer-ribbon" />
         <module name="eureka-consumer-feign" />
-        <module name="hello-eureka" />
         <module name="eureka-consumer-hystrix" />
+        <module name="hello-eureka" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="api-gateway" target="11" />
       <module name="eureka-consumer-feign" target="11" />
       <module name="eureka-consumer-hystrix" target="11" />
       <module name="eureka-consumer-ribbon" target="11" />

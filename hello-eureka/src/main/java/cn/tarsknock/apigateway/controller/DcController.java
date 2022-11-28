@@ -1,4 +1,4 @@
-package cn.tarsknock.helloeureka.controller;
+package cn.tarsknock.apigateway.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.discovery.DiscoveryClient;

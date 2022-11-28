@@ -1,10 +1,10 @@
-package cn.tarsknock.helloeureka;
+package cn.tarsknock.apigateway;
 
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class HelloEurekaApplicationTests {
+public class ApiGatewayApplicationTests {
 
 	@Test
 	public void contextLoads() {

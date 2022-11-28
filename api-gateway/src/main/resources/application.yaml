@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    consul:
+      discovery:
+#        instance-id: ${spring.application.name}:${server.port}
+        prefer-ip-address: true
+        hostname: joy.tars-knock.cn
+        port: 9006
+        enabled: true
+        register: true
+        health-check-url: http://joy2.tars-knock.cn:9003/eureka-consumer-ribbon/dc
+      host: joy2.tars-knock.cn #consul-ip
+      port: 9500 #consul-port
+      enabled: true
+
+
+server:
+  port: 8080
+

@@ -1,4 +1,4 @@
-package cn.tarsknock.helloeureka.controller;
+package cn.tarsknock.apigateway.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
