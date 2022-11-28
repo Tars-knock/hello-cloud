@@ -10,7 +10,7 @@ spring:
         port: 9006
         enabled: true
         register: true
-        health-check-url: http://joy2.tars-knock.cn:9003/eureka-consumer-ribbon/dc
+        health-check-url: http://joy.tars-knock.cn:9006/eureka-consumer-ribbon/dc
       host: joy2.tars-knock.cn #consul-ip
       port: 9500 #consul-port
       enabled: true
